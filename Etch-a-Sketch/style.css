@@ -1,0 +1,24 @@
+
+body{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+#container {
+    display: flex;
+    background-color: black;
+    border: solid black ;
+    width: 50vw;
+    height: 50vw;
+
+}
+.box-container{
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.box{
+    background-color: white
+}

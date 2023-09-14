@@ -1,7 +1,21 @@
 
-let numberOfSquares
+//elements
+const slider=document.getElementById("slider");
+const container=document.getElementById("container");
+
+//initilazation
+let numberOfSquares = getNumberOfSquares();
+container.appendChild(BoxContainer(numberOfSquares));
+
+slider.addEventListener("input",()=>{
+    container.removeChild(container.firstChild);
+    console.log(slider);
+    let numberOfSquares = getNumberOfSquares();
+    container.appendChild(BoxContainer(numberOfSquares));
+
+})
+//functions
 function getNumberOfSquares(){
-    let slider = document.getElementById("slider");
     let num = slider.value;
     return num;
 }
@@ -32,6 +46,4 @@ function darken(box){
     console.log(opacity);
     box.style.opacity=opacity;
 }
-const mainDiv=document.getElementById("container");
-mainDiv.appendChild(BoxContainer(numberOfSquares));
 

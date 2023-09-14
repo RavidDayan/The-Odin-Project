@@ -14,11 +14,14 @@ body{
 }
 .box-container{
     display: flex;
+    justify-content: space-between;
+    align-content:space-around;
     flex-basis: 100%;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .box{
-    background-color: white
+    background-color: white;
+    
 }

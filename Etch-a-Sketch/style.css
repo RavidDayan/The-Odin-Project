@@ -6,6 +6,7 @@ body{
 }
 #container {
     display: flex;
+    flex-basis: 3;
     background-color: black;
     border: solid black ;
     width: 50vw;
@@ -20,8 +21,6 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 .box{
     background-color: white;
-    
 }

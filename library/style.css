@@ -1,5 +1,8 @@
-.library{
-    width: 100px;
-    height: 100px;
-    background-image: url("/images/shelf.jpg");
+.book{
+    height: 50px;
+    width: 50px;
+    border: solid black;
+}
+.book:hover{
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.7);
 }

@@ -14,7 +14,7 @@
         <button id="removeButton">change reading status</button>
     </div>
     <div id="addBookForm">
-        <form>
+        <form onsubmit="handleSubmit(event);return false">
             <label for="bookName">New book name:</label>
             <input type="text" id="bookName" name="bookName" required>
             <label for="bookAuthor">New book Author:</label>
@@ -23,7 +23,7 @@
             <select id="bookRead" name="bookReadStatus">
                 <option value="Still reading">Still reading</option>
                 <option value="done">Done</option>
-            <input type="submit" value="Submit" onclick="processForm()">
+            <input type="submit" value="Submit">
         </form>
     </div>
     <div id="information">
@@ -32,5 +32,6 @@
         <p id="read"><span class="bookInformation">Reading status:</span></p>
     </div>
     <div id="library"></div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 const myLibrary=[];
-const shelf=document.getElementById("library");
+const library=document.getElementById("library");
 const addButton=document.getElementById("addButton")
 const removeButton=document.getElementById("removeButton")
 const bookName=document.getElementById("name");
 const bookAuthor=document.getElementById("author");
 const bookRead=document.getElementById("read");
+let currentBook;
 
 function Book(name,author,read){
     this.name=name;
@@ -12,28 +13,29 @@ function Book(name,author,read){
     this.read=read;
     this.book = document.createElement("div");
     this.book.classList.add("book");
-    this.book.addEventListener("click",()=>{
-
+    this.book.addEventListener("mouseclick",()=>{
+        currentBook=this;
         bookName.textContent= name;
         bookAuthor.textContent= author;
         bookRead.textContent= read;
     })
 }
 function clearShelf(){
-    while (shelf.firstChild) {
-        shelf.removeChild(shelf.firstChild);
+    while (library.firstChild) {
+        library.removeChild(library.firstChild);
       }
 }
 function displayBooks(){
     clearShelf();
     myLibrary.forEach(book => {
-        shelf.appendChild(book.book);
+        library.appendChild(book.book);
     });
 }
 function addNewBook(book){
     myLibrary.push(book);
-    displayBooks()
+    displayBooks();
 }
+
 function processForm(){
     const formName = document.getElementById(bookName);
     const formAuthor = document.getElementById(bookAuthor);

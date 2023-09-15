@@ -36,10 +36,11 @@ function addNewBook(book){
     displayBooks();
 }
 
-function processForm(){
-    const formName = document.getElementById(bookName);
-    const formAuthor = document.getElementById(bookAuthor);
-    const formRead = document.getElementById(bookRead);
+function handleSubmit(event) {
+    const formName = document.getElementById("bookName").value;
+    const formAuthor = document.getElementById("bookAuthor").value;
+    const formRead = document.getElementById("bookRead").value;
     const newBook=new Book(formName,formAuthor,formRead);
-
+    addNewBook(newBook);
+    console.log(newBook);
 }

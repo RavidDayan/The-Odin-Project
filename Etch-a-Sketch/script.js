@@ -16,15 +16,24 @@ slider.addEventListener("input", () => {
     let numberOfSquares = getNumberOfSquares();
     container.appendChild(BoxContainer(numberOfSquares));
 })
-darkenButton.addEventListener("click",()=>{
-    darkenBox=true;
-    randomlyColorBox=false;
+darkenButton.addEventListener("click", () => {
+    darkenBox = true;
+    randomlyColorBox = false;
 })
-rainbowButton.addEventListener("click",()=>{
-    darkenBox=false;
-    randomlyColorBox=true;
+rainbowButton.addEventListener("click", () => {
+    darkenBox = false;
+    randomlyColorBox = true;
     console.log(randomlyColorBox)
 })
+clearButton.addEventListener("click", () => {
+    const boxes = container.childNodes[0];
+    let box;
+    for (i = 0; i < boxes.childNodes.length; i++) {
+        box=boxes.childNodes[i];
+        box.style.backgroundColor = "white";
+        box.style.opacity = 1;
+    }
+});
 //functions
 function getNumberOfSquares() {
     let num = slider.value;
@@ -45,13 +54,13 @@ function Box(numberOfSquares) {
     box.style.width = (1 / numberOfSquares) * 100 + "%";
     box.style.height = (1 / numberOfSquares) * 100 + "%";
     box.addEventListener("mouseenter", () => {
-        if(darkenBox){
+        if (darkenBox) {
             darken(box);
         }
-        if(randomlyColorBox){
+        if (randomlyColorBox) {
             colorBoxRandomly(box);
         }
-        
+
     })
     return box;
 }
@@ -68,7 +77,7 @@ function colorBoxRandomly(box) {
     let red = GenerateRandomColor();
     let green = GenerateRandomColor();
     let blue = GenerateRandomColor();
-    const rgbColor = "rgb("+red+","+green+","+blue+")";
-    box.style.backgroundColor=rgbColor;
+    const rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
+    box.style.backgroundColor = rgbColor;
 }
 

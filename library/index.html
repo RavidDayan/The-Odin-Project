@@ -20,7 +20,9 @@
             <label for="bookAuthor">New book Author:</label>
             <input type="text" id="bookAuthor" name="bookAuthor" required> 
             <label for="bookReadStatus">Check if book has been read:</label>
-            <input type="checkbox" id="bookReadStatus" name="bookReadStatus" required> 
+            <select id="bookRead" name="bookReadStatus">
+                <option value="Still reading">Still reading</option>
+                <option value="done">Done</option>
             <input type="submit" value="Submit" onclick="processForm()">
         </form>
     </div>

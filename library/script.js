@@ -3,19 +3,25 @@ const library = document.getElementById("library");
 const addButton = document.getElementById("addButton")
 const removeButton = document.getElementById("removeButton")
 const cancelButton = document.getElementById("cancelButton")
+const readStatusButton = document.getElementById("readStatusButton")
 const bookName = document.getElementById("name");
 const bookAuthor = document.getElementById("author");
 const bookRead = document.getElementById("read");
 const addBookForm = document.getElementById("addBookForm");
 let currentBook;
-
+//intialize
 addBookForm.style.display = "none";
-addButton.addEventListener("click",()=>{
+removeButton.disabled = true;
+readStatusButton.disabled = true;
+//event listners
+addButton.addEventListener("click", () => {
     addBookForm.style.display = "block";
 })
-cancelButton.addEventListener("click",()=>{
+
+cancelButton.addEventListener("click", () => {
     addBookForm.style.display = "none";
 })
+//constructors
 function Book(name, author, read) {
     this.name = name;
     this.author = author;
@@ -27,8 +33,11 @@ function Book(name, author, read) {
         bookName.textContent = "Name: " + name;
         bookAuthor.textContent = "Author: " + author;
         bookRead.textContent = "Reading status: " + read;
+        removeButton.disabled = false;
+        readStatusButton.disabled = false;
     })
 }
+//functions
 function clearShelf() {
     while (library.firstChild) {
         library.removeChild(library.firstChild);

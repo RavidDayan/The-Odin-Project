@@ -12,13 +12,22 @@
         <button id="addButton">Add</button>
         <button id="removeButton">Remove</button>
     </div>
+    <div id="addBookForm">
+        <form>
+            <label for="bookName">New book name:</label>
+            <input type="text" id="bookName" name="bookName" required>
+            <label for="bookAuthor">New book Author:</label>
+            <input type="text" id="bookAuthor" name="bookAuthor" required> 
+            <label for="bookReadStatus">Check if book has been read:</label>
+            <input type="checkbox" id="bookReadStatus" name="bookReadStatus" required> 
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <div id="information">
         <p id="name"><span class="bookInformation">Name:</span></p>
         <p id="author"><span class="bookInformation">Author:</span></p>
         <p id="read"><span class="bookInformation">Reading status:</span></p>
     </div>
-    <div id="library">
-
-    </div>
+    <div id="library"></div>
 </body>
 </html>

@@ -11,6 +11,7 @@
         <p>Welcome to Ravid's Library</p>
         <button id="addButton">Add</button>
         <button id="removeButton">Remove</button>
+        <button id="removeButton">change reading status</button>
     </div>
     <div id="addBookForm">
         <form>
@@ -20,7 +21,7 @@
             <input type="text" id="bookAuthor" name="bookAuthor" required> 
             <label for="bookReadStatus">Check if book has been read:</label>
             <input type="checkbox" id="bookReadStatus" name="bookReadStatus" required> 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" onclick="processForm()">
         </form>
     </div>
     <div id="information">

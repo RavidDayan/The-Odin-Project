@@ -21,6 +21,13 @@ addButton.addEventListener("click", () => {
 cancelButton.addEventListener("click", () => {
     addBookForm.style.display = "none";
 })
+removeButton.addEventListener("click", () => {
+    let indexOfBook=myLibrary.indexOf(currentBook);
+    library.removeChild(library.children[indexOfBook]);
+    myLibrary.splice(indexOfBook,1);
+    clearInformation();
+
+})
 //constructors
 function Book(name, author, read) {
     this.name = name;
@@ -59,5 +66,13 @@ function handleSubmit(event) {
     const formRead = document.getElementById("bookRead").value;
     const newBook = new Book(formName, formAuthor, formRead);
     addNewBook(newBook);
-    console.log(newBook);
+}
+function clearInformation(){
+    currentBook=null;
+    bookName.textContent = "Name: "
+    bookAuthor.textContent = "Author: "
+    bookRead.textContent = "Reading status: "
+    removeButton.disabled = true;
+    readStatusButton.disabled = true;
+
 }

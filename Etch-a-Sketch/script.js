@@ -1,20 +1,23 @@
 
 //elements
 const slider = document.getElementById("slider");
+const gridText = document.getElementById("gridText");
 const container = document.getElementById("container");
 const clearButton = document.getElementById("reset");
 const darkenButton = document.getElementById("darken");
 const rainbowButton = document.getElementById("rainbow");
 let darkenBox = true;
 let randomlyColorBox = false;
-
 //initilazation and listeners
 let numberOfSquares = getNumberOfSquares();
+console.log(gridText);
+gridText.textContent = "Grid size: "+numberOfSquares+"X"+numberOfSquares;
 container.appendChild(BoxContainer(numberOfSquares));
 slider.addEventListener("input", () => {
     container.removeChild(container.firstChild);
     let numberOfSquares = getNumberOfSquares();
     container.appendChild(BoxContainer(numberOfSquares));
+    gridText.textContent = "Grid size: "+numberOfSquares+"X"+numberOfSquares;
 })
 darkenButton.addEventListener("click", () => {
     darkenBox = true;
@@ -29,7 +32,7 @@ clearButton.addEventListener("click", () => {
     const boxes = container.childNodes[0];
     let box;
     for (i = 0; i < boxes.childNodes.length; i++) {
-        box=boxes.childNodes[i];
+        box = boxes.childNodes[i];
         box.style.backgroundColor = "white";
         box.style.opacity = 1;
     }

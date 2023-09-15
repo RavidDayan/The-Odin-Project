@@ -2,15 +2,27 @@
 body{
     display: flex;
     flex-direction:column;
+    align-items:  center;
+
+}
+#navbar{
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+}
+#gridText{
+    text-align: center;
+}
+.navBarItem{
+    margin: 2%;
 }
 #container {
     display: flex;
-    flex-basis: 3;
     background-color: black;
     border: solid black ;
-    width: 50vw;
-    height: 50vw;
+    width: 30vw;
+    height: 30vw;
 
 }
 .box-container{

@@ -10,11 +10,13 @@
     <h1>The Odin project</h1>
     <h2>Etch-a-Sketch</h2>
     <div id="navbar">
-        <input id="slider" type="range" min="1" max="32" value="16">
-        <p>Grid size:</p>
-        <button id="darken">Darken</button>
-        <button id="rainbow">Rainbow</button>
-        <button id="reset">Reset</button>
+        <div>
+            <p id="gridText" class="navBarItem"></p>
+            <input id="slider" class="navBarItem" type="range" min="1" max="32" value="16">
+        </div>
+        <button id="darken" class="navBarItem">Darken</button>
+        <button id="rainbow" class="navBarItem">Rainbow</button>
+        <button id="reset" class="navBarItem">Reset</button>
     </div>
     <div id="container"></div>
     <h3>made by Ravid Dayan</h3>

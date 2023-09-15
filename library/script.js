@@ -13,11 +13,11 @@ function Book(name,author,read){
     this.read=read;
     this.book = document.createElement("div");
     this.book.classList.add("book");
-    this.book.addEventListener("mouseclick",()=>{
+    this.book.addEventListener("click",()=>{
         currentBook=this;
-        bookName.textContent= name;
-        bookAuthor.textContent= author;
-        bookRead.textContent= read;
+        bookName.textContent= "Name: "+name;
+        bookAuthor.textContent= "Author: "+author;
+        bookRead.textContent= "Reading status: "+read;
     })
 }
 function clearShelf(){

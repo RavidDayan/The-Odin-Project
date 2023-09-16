@@ -1,5 +1,5 @@
 const myLibrary = [];
-const maxBooksSpace=40;
+const maxBooksSpace = 40;
 const library = document.getElementById("library");
 const addButton = document.getElementById("addButton")
 const removeButton = document.getElementById("removeButton")
@@ -17,14 +17,20 @@ readStatusButton.disabled = true;
 //tester
 function test() {
     for (let i = 0; i < 40; i++) {
-        myLibrary[i]=(new Book(i, i, "Done"));
+        myLibrary[i] = (new Book(i, i, "Done"));
         addNewBook(myLibrary[i]);
     }
 }
 test();
 //event listners
 addButton.addEventListener("click", () => {
-    addBookForm.style.display = "block";
+    if(checkForBookRoom()){
+        addBookForm.style.display = "block";
+    }
+    else{
+        noRoomForBooksAlert();
+    }
+    
 })
 cancelButton.addEventListener("click", () => {
     addBookForm.style.display = "none";
@@ -52,9 +58,9 @@ function Book(name, author, read) {
     this.name = name;
     this.author = author;
     this.read = read;
-    this.color=colorBoxRandomly();
+    this.color = colorBoxRandomly();
     this.book = document.createElement("div");
-    this.book.style.backgroundColor=this.color;
+    this.book.style.backgroundColor = this.color;
     this.book.classList.add("book");
     this.book.addEventListener("click", () => {
         currentBook = this;
@@ -82,16 +88,15 @@ function addNewBook(book) {
     displayBooks();
 }
 function handleSubmit(event) {
-    if(myLibrary.length<maxBooksSpace){
+    if (checkForBookRoom()) {
         const formName = document.getElementById("bookName").value;
         const formAuthor = document.getElementById("bookAuthor").value;
         const formRead = document.getElementById("bookRead").value;
         const newBook = new Book(formName, formAuthor, formRead);
         addNewBook(newBook);
     }
-    else
-    {
-        alert("NO SPACE AVAILABLE");
+    else {
+        noRoomForBooksAlert()
     }
 }
 function clearInformation() {
@@ -112,4 +117,13 @@ function colorBoxRandomly() {
     let blue = GenerateRandomColor();
     const rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
     return rgbColor;
+}
+function noRoomForBooksAlert(){
+    alert("NO SPACE AVAILABLE");
+}
+function checkForBookRoom(){
+    if(myLibrary.length <= maxBooksSpace){
+        return true;
+    }
+    return false;
 }

@@ -1,4 +1,5 @@
 const myLibrary = [];
+const maxBooksSpace=40;
 const library = document.getElementById("library");
 const addButton = document.getElementById("addButton")
 const removeButton = document.getElementById("removeButton")
@@ -15,7 +16,7 @@ removeButton.disabled = true;
 readStatusButton.disabled = true;
 //tester
 function test() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 40; i++) {
         myLibrary[i]=(new Book(i, i, "Done"));
         addNewBook(myLibrary[i]);
     }
@@ -81,11 +82,17 @@ function addNewBook(book) {
     displayBooks();
 }
 function handleSubmit(event) {
-    const formName = document.getElementById("bookName").value;
-    const formAuthor = document.getElementById("bookAuthor").value;
-    const formRead = document.getElementById("bookRead").value;
-    const newBook = new Book(formName, formAuthor, formRead);
-    addNewBook(newBook);
+    if(myLibrary.length<maxBooksSpace){
+        const formName = document.getElementById("bookName").value;
+        const formAuthor = document.getElementById("bookAuthor").value;
+        const formRead = document.getElementById("bookRead").value;
+        const newBook = new Book(formName, formAuthor, formRead);
+        addNewBook(newBook);
+    }
+    else
+    {
+        alert("NO SPACE AVAILABLE");
+    }
 }
 function clearInformation() {
     currentBook = null;

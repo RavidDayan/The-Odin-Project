@@ -14,13 +14,13 @@ addBookForm.style.display = "none";
 removeButton.disabled = true;
 readStatusButton.disabled = true;
 //tester
-function test(){
-    for(let i=0;i<50;i++){
-        myLibrary.push(new Book(i,i,"Done"));
+function test() {
+    for (let i = 0; i < 50; i++) {
+        myLibrary[i]=(new Book(i, i, "Done"));
         addNewBook(myLibrary[i]);
     }
 }
-test()
+test();
 //event listners
 addButton.addEventListener("click", () => {
     addBookForm.style.display = "block";
@@ -30,8 +30,10 @@ cancelButton.addEventListener("click", () => {
 })
 removeButton.addEventListener("click", () => {
     let indexOfBook = myLibrary.indexOf(currentBook);
-    library.removeChild(library.children[indexOfBook]);
+    console.log(indexOfBook);
     myLibrary.splice(indexOfBook, 1);
+    clearShelf();
+    displayBooks();
     clearInformation();
 
 })
@@ -49,7 +51,9 @@ function Book(name, author, read) {
     this.name = name;
     this.author = author;
     this.read = read;
+    this.color=colorBoxRandomly();
     this.book = document.createElement("div");
+    this.book.style.backgroundColor=this.color;
     this.book.classList.add("book");
     this.book.addEventListener("click", () => {
         currentBook = this;
@@ -91,4 +95,14 @@ function clearInformation() {
     removeButton.disabled = true;
     readStatusButton.disabled = true;
 
+}
+function GenerateRandomColor() {
+    return Math.floor(Math.random() * 255);
+}
+function colorBoxRandomly() {
+    let red = GenerateRandomColor();
+    let green = GenerateRandomColor();
+    let blue = GenerateRandomColor();
+    const rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
+    return rgbColor;
 }

@@ -17,7 +17,6 @@ readStatusButton.disabled = true;
 addButton.addEventListener("click", () => {
     addBookForm.style.display = "block";
 })
-
 cancelButton.addEventListener("click", () => {
     addBookForm.style.display = "none";
 })
@@ -27,6 +26,15 @@ removeButton.addEventListener("click", () => {
     myLibrary.splice(indexOfBook,1);
     clearInformation();
 
+})
+readStatusButton.addEventListener("click",()=>{
+    if(currentBook.read == "Done"){
+        currentBook.read="Still reading";
+    }
+    else{
+        currentBook.read="Done";
+    }
+    bookRead.textContent= "Reading status:"+currentBook.read;
 })
 //constructors
 function Book(name, author, read) {

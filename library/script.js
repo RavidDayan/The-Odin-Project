@@ -8,7 +8,7 @@ const readStatusButton = document.getElementById("readStatusButton")
 const bookName = document.getElementById("name");
 const bookAuthor = document.getElementById("author");
 const bookRead = document.getElementById("read");
-const addBookForm = document.getElementById("addBookForm");
+const addBookForm = document.getElementById("addBookFormDiv");
 let currentBook;
 //intialize
 addBookForm.style.display = "none";
@@ -24,13 +24,13 @@ function test() {
 test();
 //event listners
 addButton.addEventListener("click", () => {
-    if(checkForBookRoom()){
+    if (checkForBookRoom()) {
         addBookForm.style.display = "block";
     }
-    else{
+    else {
         noRoomForBooksAlert();
     }
-    
+
 })
 cancelButton.addEventListener("click", () => {
     addBookForm.style.display = "none";
@@ -96,7 +96,7 @@ function handleSubmit(event) {
         addNewBook(newBook);
     }
     else {
-        noRoomForBooksAlert()
+        noRoomForBooksAlert();
     }
 }
 function clearInformation() {
@@ -118,11 +118,11 @@ function colorBoxRandomly() {
     const rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
     return rgbColor;
 }
-function noRoomForBooksAlert(){
+function noRoomForBooksAlert() {
     alert("NO SPACE AVAILABLE");
 }
-function checkForBookRoom(){
-    if(myLibrary.length <= maxBooksSpace){
+function checkForBookRoom() {
+    if (myLibrary.length <= maxBooksSpace) {
         return true;
     }
     return false;

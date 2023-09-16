@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ravid's Library</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -13,18 +13,29 @@
         <button id="removeButton">Remove</button>
         <button id="readStatusButton">change reading status</button>
     </div>
-    <div id="addBookForm">
-        <form onsubmit="handleSubmit(event);return false">
-            <label for="bookName">New book name:</label>
-            <input type="text" id="bookName" name="bookName" required>
-            <label for="bookAuthor">New book Author:</label>
-            <input type="text" id="bookAuthor" name="bookAuthor" required> 
-            <label for="bookReadStatus">Check if book has been read:</label>
-            <select id="bookRead" name="bookReadStatus">
-                <option value="Still reading">Still reading</option>
-                <option value="done">Done</option>
-            <input type="submit" value="Submit">
-            <button id="cancelButton">Cancel</button>
+    <div id="addBookFormDiv">
+        <form id="addBookForm" onsubmit="handleSubmit(event);return false">
+            <table>
+                <tr>
+                    <th><label class="ofForm" for="bookName">New book name:</label></th>
+                    <th><input class="ofForm" type="text" id="bookName" name="bookName" required></th>
+                </tr>
+                <tr>
+                    <th><label class="ofForm" for="bookAuthor">New book Author:</label></th>
+                    <th><input class="ofForm" type="text" id="bookAuthor" name="bookAuthor" required></th>
+                </tr>
+                <tr>
+                    <th><label class="ofForm" for="bookReadStatus">Check if book has been read:</label></th>
+                    <th><select class="ofForm" id="bookRead" name="bookReadStatus">
+                        <option value="Still reading">Still reading</option>
+                        <option value="done">Done</option>
+                    </th>
+                </tr>
+                <tr>
+                    <th><input class="ofForm" type="submit" value="Submit"></th>
+                    <th><button class="ofForm" id="cancelButton">Cancel</button></th>
+                </tr>
+            </table>
         </form>
     </div>
     <div id="information">

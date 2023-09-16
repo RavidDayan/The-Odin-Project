@@ -13,6 +13,14 @@ let currentBook;
 addBookForm.style.display = "none";
 removeButton.disabled = true;
 readStatusButton.disabled = true;
+//tester
+function test(){
+    for(let i=0;i<50;i++){
+        myLibrary.push(new Book(i,i,"Done"));
+        addNewBook(myLibrary[i]);
+    }
+}
+test()
 //event listners
 addButton.addEventListener("click", () => {
     addBookForm.style.display = "block";
@@ -21,20 +29,20 @@ cancelButton.addEventListener("click", () => {
     addBookForm.style.display = "none";
 })
 removeButton.addEventListener("click", () => {
-    let indexOfBook=myLibrary.indexOf(currentBook);
+    let indexOfBook = myLibrary.indexOf(currentBook);
     library.removeChild(library.children[indexOfBook]);
-    myLibrary.splice(indexOfBook,1);
+    myLibrary.splice(indexOfBook, 1);
     clearInformation();
 
 })
-readStatusButton.addEventListener("click",()=>{
-    if(currentBook.read == "Done"){
-        currentBook.read="Still reading";
+readStatusButton.addEventListener("click", () => {
+    if (currentBook.read == "Done") {
+        currentBook.read = "Still reading";
     }
-    else{
-        currentBook.read="Done";
+    else {
+        currentBook.read = "Done";
     }
-    bookRead.textContent= "Reading status:"+currentBook.read;
+    bookRead.textContent = "Reading status:" + currentBook.read;
 })
 //constructors
 function Book(name, author, read) {
@@ -75,8 +83,8 @@ function handleSubmit(event) {
     const newBook = new Book(formName, formAuthor, formRead);
     addNewBook(newBook);
 }
-function clearInformation(){
-    currentBook=null;
+function clearInformation() {
+    currentBook = null;
     bookName.textContent = "Name: "
     bookAuthor.textContent = "Author: "
     bookRead.textContent = "Reading status: "

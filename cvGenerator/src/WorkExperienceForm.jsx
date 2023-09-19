@@ -1,16 +1,17 @@
-import {workExperienceList} from './WorkExperienceList.jsx'
+import { workExperienceList } from './WorkExperienceList.jsx'
 import WorkData from './WorkExperienceList.jsx'
 import { useState } from 'react';
 import React from 'react';
 
+
 function WorkExperienceForm() {
-        const [formData, fetchFormData] = useState({
-            companyName:"",
-            positionTitle:"",
-            workSummary:"",
-            workDateFrom:"",
-            workDateTo:"",
-        });
+    const [formData, fetchFormData] = useState({
+        companyName: "",
+        positionTitle: "",
+        workSummary: "",
+        workDateFrom: "",
+        workDateTo: "",
+    });
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -20,13 +21,13 @@ function WorkExperienceForm() {
 
     const handleClick = (e) => {
         e.preventDefault();
-        const {companyName,positionTitle,workSummary,workDateFrom,workDateTo}=formData;
-        workExperienceList.push(new WorkData(companyName,positionTitle,workSummary,workDateFrom,workDateTo));
-    console.log(workExperienceList);
+        const { companyName, positionTitle, workSummary, workDateFrom, workDateTo } = formData;
+        workExperienceList.push(new WorkData(companyName, positionTitle, workSummary, workDateFrom, workDateTo));
+        console.log(workExperienceList);
     }
     return (
         <>
-            <form>
+            <form >
                 <label>companyName</label>
                 <input type="text" name="companyName" onChange={handleChange}></input>
                 <label>Title</label>
@@ -34,14 +35,13 @@ function WorkExperienceForm() {
                 <label>Summary</label>
                 <input type="text" name="workSummary" onChange={handleChange}></input>
                 <label>Starting date</label>
-                <input type="text" name="workDateFrom" onChange={handleChange}></input>
+                <input type="date" name="workDateFrom" onChange={handleChange}></input>
                 <label>End date</label>
-                <input type="text" name="workDateTo" onChange={handleChange}></input>
+                <input type="date" name="workDateTo" onChange={handleChange}></input>
                 <button onClick={handleClick}>Add</button>
             </form>
         </>
     );
-
 }
 
 export default WorkExperienceForm;

@@ -3,41 +3,41 @@ import { workList } from './WorkClass.jsx'
 
 function WorkItem({ workDetails, deleteFunc }) {
     const [item, UpdateItem] = useState(workDetails);
-    const [editButton,setEditButton]=useState(<button name="editButton" onClick={Edit}>edit</button>);
+    const [editButton, setEditButton] = useState(<button name="editButton" onClick={Edit}>edit</button>);
     let tempItem;
 
     function Delete() {
         deleteFunc("work", item.key);
     }
-    function Edit(){
-        tempItem=item;
-        let labels=document.getElementsByClassName("changeable");
-        labels=[...labels];
+    function Edit() {
+        tempItem = item;
+        let labels = document.getElementsByClassName("changeable");
+        labels = [...labels];
         labels.forEach(label => {
-            label.displayOnly= true;
+            label.displayOnly = true;
         });
     }
-    function Edit(){
+    function Edit() {
         setEditButton(<button onClick={Save}>save</button>);
-        tempItem=item;
-        let labels=document.getElementsByClassName("changeable");
-        labels=[...labels];
+        tempItem = item;
+        let labels = document.getElementsByClassName("changeable");
+        labels = [...labels];
         labels.forEach(label => {
-            label.displayOnly= true;
+            label.displayOnly = true;
         });
     }
-    function Save(){
+    function Save() {
         setEditButton(<button onClick={Edit}>edit</button>);
         UpdateItem(tempItem);
-        let labels=document.getElementsByClassName("changeable");
-        labels=[...labels];
+        let labels = document.getElementsByClassName("changeable");
+        labels = [...labels];
         labels.forEach(label => {
-            label.displayOnly= true;
+            label.displayOnly = true;
         });
     }
-    function OnChange(event){
-        const attributeName=event.target.getAttribute("name");
-        tempItem[attributeName]=event.target.value;
+    function OnChange(event) {
+        const attributeName = event.target.getAttribute("name");
+        tempItem[attributeName] = event.target.value;
     }
 
     return (
@@ -53,7 +53,7 @@ function WorkItem({ workDetails, deleteFunc }) {
                     <span className="changeable" name={item.dateFrom} onChange={OnChange}>{item.dateFrom}</span></li>
                 <li><label>end date: </label>
                     <span className="changeable" name={item.dateTo} onChange={OnChange}>{item.dateTo}</span></li>
-                <button  onClick={Delete}>delete</button>
+                <button onClick={Delete}>delete</button>
                 {editButton}
             </ul>
         </div>

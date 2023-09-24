@@ -1,10 +1,9 @@
-import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-const workList = [];
+export const workList = [];
 
-class work {
-    constructor(name, position, summary, dareFrom, dateTo) {
+class Work {
+    constructor(name, position, summary, dateFrom, dateTo) {
         this.key = uuidv4();
         this.name = name;
         this.position = position;
@@ -13,3 +12,6 @@ class work {
         this.dateTo = dateTo;
     }
 }
+export default Work;
+workList.push(new Work(1,2,3,4,5))
+

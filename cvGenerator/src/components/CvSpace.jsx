@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Work, { workList } from './WorkClass.jsx'
+import Work, { workList ,deleteWork} from './WorkClass.jsx'
 import WorkItem from './WorkItem.jsx';
 
 function CvSpace() {
@@ -7,14 +7,16 @@ function CvSpace() {
 
     function Delete(type, item) {
         if (type == "work") {
-            updateWorkItems(workItems.filter(x => { x.key = item.key }));
+            deleteWork(item);
+            updateWorkItems(workList);
         }
         if (type == "school") {
             console.log("delete school");
         }
+        console.log(workList);
     }
     function AddButtonFunc(){
-        
+
     }
 
 

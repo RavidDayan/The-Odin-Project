@@ -1,6 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const workList = [];
+export let workList = [];
+
+export function deleteWork(remove){
+    workList=workList.filter(x => { x.key = remove.key });
+}
 
 class Work {
     constructor(name, position, summary, dateFrom, dateTo) {

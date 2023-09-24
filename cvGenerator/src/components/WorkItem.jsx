@@ -10,49 +10,51 @@ function WorkItem({ workDetails, deleteFunc }) {
         deleteFunc("work", item.key);
     }
     function Edit() {
-        tempItem = item;
-        let labels = document.getElementsByClassName("changeable");
-        labels = [...labels];
-        labels.forEach(label => {
-            label.displayOnly = true;
-        });
-    }
-    function Edit() {
+        //change edit button to a save button
         setEditButton(<button onClick={Save}>save</button>);
+        //give temp item the current values of item
         tempItem = item;
+        //enable all elements fields to editable
         let labels = document.getElementsByClassName("changeable");
         labels = [...labels];
         labels.forEach(label => {
-            label.displayOnly = true;
+            label.contentEditable = true;
         });
     }
     function Save() {
+        //change save button to an edit button
         setEditButton(<button onClick={Edit}>edit</button>);
-        UpdateItem(tempItem);
+        //update the item to the new values stored in temp
+        //disable all elements that were enabled
         let labels = document.getElementsByClassName("changeable");
         labels = [...labels];
         labels.forEach(label => {
-            label.displayOnly = true;
+            label.contentEditable = false;
+            tempItem[label.getAttribute("name")]=label.textContent;
+            console.log(label.textContent);
         });
-    }
-    function OnChange(event) {
-        const attributeName = event.target.getAttribute("name");
-        tempItem[attributeName] = event.target.value;
+        UpdateItem(tempItem);
+        //set changes to work item in the work list
+        workList.forEach(work=>{
+            if(work.key==tempItem.key){
+                work=tempItem;
+            }
+        })
     }
 
     return (
         <div key={item.key} id={item.key}>
             <ul>
                 <li><label>Company name: </label>
-                    <span className="changeable" name={item.name} onChange={OnChange}>{item.name}</span></li>
+                    <span className="changeable" name="name" >{item.name}</span></li>
                 <li><label>Position: </label>
-                    <span className="changeable" name={item.position} onChange={OnChange}>{item.position}</span></li>
+                    <span className="changeable" name="position" >{item.position}</span></li>
                 <li><label>Sumary: </label>
-                    <span className="changeable" name={item.summary} onChange={OnChange}>{item.summary}</span></li>
+                    <span className="changeable" name="summary" >{item.summary}</span></li>
                 <li><label>start date: </label>
-                    <span className="changeable" name={item.dateFrom} onChange={OnChange}>{item.dateFrom}</span></li>
+                    <span className="changeable" name="dateFrom" >{item.dateFrom}</span></li>
                 <li><label>end date: </label>
-                    <span className="changeable" name={item.dateTo} onChange={OnChange}>{item.dateTo}</span></li>
+                    <span className="changeable" name="dateTo" >{item.dateTo}</span></li>
                 <button onClick={Delete}>delete</button>
                 {editButton}
             </ul>

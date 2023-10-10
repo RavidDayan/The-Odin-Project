@@ -1,11 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export let workList = [];
-
-export function deleteWork(remove){
-    workList=workList.filter(x => { x.key = remove.key });
-}
-
 class Work {
     constructor(name, position, summary, dateFrom, dateTo) {
         this.key = uuidv4();
@@ -17,5 +11,4 @@ class Work {
     }
 }
 export default Work;
-workList.push(new Work(1,2,3,4,5))
 

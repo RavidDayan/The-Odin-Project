@@ -4,6 +4,7 @@ import WorkItem from './WorkItem.jsx';
 import School from './SchoolClass.jsx'
 import SchoolItem from './SchoolItem.jsx';
 import GeneralInformation from './GeneralInformation.jsx';
+import '../style/index.css'
 
 export default CvSpace;
 
@@ -35,7 +36,7 @@ function CvSpace() {
         else {
             const newSchool = new School(1, 2, 3, 4);
             updateSchoolItems([...schoolItems, newSchool]);
-            
+
         }
 
     }
@@ -47,16 +48,27 @@ function CvSpace() {
     }
     return (
 
-        <div className='cvSpace'>
-            <GeneralInformation />
+        <div className='cvSpace m-5 p-3'>
+            <div className='row'>
+                <GeneralInformation />
+            </div>
             <div id="workExperience">
-                <button onClick={addWorkButton}>add</button>
+                <div className='row' >
+                    <div className='col-10'><h2>work experience:</h2></div>
+                    <div className='col-2'>
+                        <button onClick={addWorkButton}>add</button>
+                    </div>
+                </div>
                 {workItems.map(x => {
                     return <WorkItem key={x.key} workDetails={x} deleteFunc={Delete} />;
                 })}
             </div>
             <div id="education">
-                <button onClick={addSchoolButton}>add</button>
+            <div className='row' >
+            <div className='col-10'><h2>Education:</h2></div>
+                    <div className='col-2'>
+                    <button onClick={addSchoolButton}>add</button>                    </div>
+                </div>
                 {schoolItems.map(x => {
                     return <SchoolItem key={x.key} SchoolDetails={x} deleteFunc={Delete} />;
                 })}

@@ -3,7 +3,7 @@ import { schoolList } from './SchoolClass.jsx'
 
 function SchoolItem({ SchoolDetails, deleteFunc }) {
     const [item, UpdateItem] = useState(SchoolDetails);
-    const [editButton, setEditButton] = useState(<button name="editButton" onClick={Edit}>edit</button>);
+    const [editButton, setEditButton] = useState(<button className="btn btn-light" name="editButton" onClick={Edit}>edit</button>);
     let tempItem;
 
     function Delete() {
@@ -44,18 +44,25 @@ function SchoolItem({ SchoolDetails, deleteFunc }) {
     }
     return (
         <div key={item.key} id={item.key}>
-            <ul>
-                <li><label>School: </label>
-                    <span className="changeable" name="name" >{item.name}</span></li>
-                <li><label>title: </label>
-                    <span className="changeable" name="title" >{item.title}</span></li>
-                <li><label>start date: </label>
-                    <span className="changeable" name="dateFrom" >{item.dateFrom}</span></li>
-                <li><label>end date: </label>
-                    <span className="changeable" name="dateTo" >{item.dateTo}</span></li>
-                <button onClick={Delete}>delete</button>
+            <div className="row">
+                <div className="col-auto"><span className="changeable" name="dateFrom" >{item.dateFrom}</span></div>
+                <div className="col-auto">
+                    <span>-</span>
+                </div>
+                <div className="col-auto"><span className="changeable" name="dateTo" >{item.dateTo}</span></div>
+                <div className="col-auto">
+                    <span>:</span>
+                </div>
+                <div className="col-auto"><span className="changeable" name="title" >{item.title}</span></div>
+                <div className="col-auto">
+                    <span>,</span>
+                </div>
+                <div className="col-auto"><span className="changeable" name="name" >{item.name}</span></div>
+            </div>
+            <div className=" d-flex justify-content-end">
+                <button class="btn btn-danger" onClick={Delete}>delete</button>
                 {editButton}
-            </ul>
+            </div>
         </div>
     );
 }

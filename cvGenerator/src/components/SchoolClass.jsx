@@ -18,5 +18,4 @@ class School {
     }
 }
 export default School;
-schoolList.push(new School(1,2,3,4,5))
 
